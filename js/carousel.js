@@ -1,32 +1,42 @@
-
-
-//carousel
-
-//Array storage class
+// carrossel 
+// array para armazenamento das imagens, descrições e links
 let carouselArr = [];
 
-
-//class Carousel
+//objeto carrossel
 class Carousel {
+    nome
+    descricao
+    link
+    constructor(nome, descricao, link) {
+        this.nome = nome;
+        this.descricao = descricao;
+        this.link = link;
+    }
 
-    
-      
     static Start(arr){
         if(arr){
-
             if(arr.length > 0){
                 Carousel._sequence = 0;
                 Carousel._size = arr.length;
                 Carousel.Next(); //start
-                Carousel._interval = setInterval(function(){ Carousel.Next(); },5000);
+                Carousel._interval = setInterval(function(){ Carousel.Next(); },3000);
             }
-            
         } else {
             throw "Method Start need a Array Variable.";
         }
     }
+    static Next() {
+        let nomeDoArquivo = carouselArr[Carousel._sequence].nome;
+        let descricaoDaImagem = carouselArr[Carousel._sequence].descricao;
+        let link = carouselArr[Carousel._sequence].link;
+        let imagemPromocional = document.getElementById('carousel');
+        imagemPromocional.innerHTML = `<img src="/img/${nomeDoArquivo}" alt="">`;
+        let descricaoPromocional = document.getElementById('carousel-title');
+        descricaoPromocional.innerHTML = `<a href="/${link}">${descricaoDaImagem}</a>`;
 
-    static Next(){
-        
+        Carousel._sequence++;
+        if(Carousel._sequence >= carouselArr.length) {
+            Carousel._sequence = 0
+        }
     }
 };
