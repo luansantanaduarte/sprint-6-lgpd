@@ -30,7 +30,7 @@ class Carousel {
         let descricaoDaImagem = carouselArr[Carousel._sequence].descricao;
         let link = carouselArr[Carousel._sequence].link;
         let imagemPromocional = document.getElementById('carousel');
-        imagemPromocional.innerHTML = `<img src="/img/${nomeDoArquivo}" alt="">`;
+        imagemPromocional.innerHTML = `<a href="/${link}"><img src="/img/${nomeDoArquivo}" alt=""></a>`;
         let descricaoPromocional = document.getElementById('carousel-title');
         descricaoPromocional.innerHTML = `<a href="/${link}">${descricaoDaImagem}</a>`;
 
