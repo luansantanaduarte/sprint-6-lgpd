@@ -39,6 +39,12 @@ function GetCarArrPosition(arr, carClass) {
 }
 
 function SetCarToCompare(el, carClass) {
+    if (el.checked && carArr.length >= 2) {
+        alert("Só é possível comparar 2 carros por vez.");
+        el.checked = false;
+        return;
+    }
+
     if(carClass instanceof Car){       
         if(el.checked){
             carArr.push(carClass);
@@ -53,10 +59,6 @@ function SetCarToCompare(el, carClass) {
 function ShowCompare() {
     if(carArr.length < 2) {
         alert("Precisa marcar 2 carros para apresentar a comparação.");
-        return;
-    } else if (carArr.length > 2) {
-        alert("Só é possível comparar 2 carros por vez.");
-        return;
     }
 
     UpdateCompareTable();
