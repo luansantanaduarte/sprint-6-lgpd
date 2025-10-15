@@ -1,7 +1,5 @@
-
 //class contato
-
-class contato {
+class Contato {
     constructor(nome, sobrenome, email, cpf, telefone, contato) {
         this.nome = nome;
         this.sobrenome = sobrenome;
@@ -12,21 +10,24 @@ class contato {
     }
 }
 
-function Post(form) {
+function Post(form, event) {
 
-  let data = new contato(form.elements.namedItem("nome").value,
-            form.elements.namedItem("sobrenome").value, 
-            form.elements.namedItem("email").value, 
-            form.elements.namedItem("cpf").value, 
-            form.elements.namedItem("telefone").value, 
-            form.elements.namedItem("contato").value);
-  
-}
+    console.log("--- A função Post foi chamada! ---")
+    event.preventDefault();
 
-function Enviar() {
+    let data = new Contato(form.elements.namedItem("nome").value,
+        form.elements.namedItem("sobrenome").value,
+        form.elements.namedItem("email").value,
+        form.elements.namedItem("cpf").value,
+        form.elements.namedItem("telefone").value,
+        form.elements.namedItem("contato").value);
+
+
     var nome = document.getElementById("nomeid");
 
     if (nome.value != "") {
         alert('Obrigado sr(a) ' + nome.value + ' os seus dados foram encaminhados com sucesso');
     }
+
+    console.log(data);
 }
