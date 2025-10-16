@@ -39,6 +39,7 @@ function GetCarArrPosition(arr, carClass) {
 }
 
 function SetCarToCompare(el, carClass) {
+    const i = GetCarArrPosition(carArr, carClass);
     if (el.checked && carArr.length >= 2) {
         alert("Só é possível comparar 2 carros por vez.");
         el.checked = false;
@@ -49,7 +50,7 @@ function SetCarToCompare(el, carClass) {
         if(el.checked){
             carArr.push(carClass);
         } else {
-            carArr.pop(carArr)
+            carArr.splice(i, 1)
         } 
     } else {
         throw "You need set a Car Class";
