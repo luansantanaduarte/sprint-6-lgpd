@@ -11,8 +11,6 @@ class Contato {
 }
 
 function Post(form, event) {
-
-    console.log("--- A função Post foi chamada! ---")
     event.preventDefault();
 
     let data = new Contato(form.elements.namedItem("nome").value,
@@ -28,6 +26,10 @@ function Post(form, event) {
     if (nome.value != "") {
         alert('Obrigado sr(a) ' + nome.value + ' os seus dados foram encaminhados com sucesso');
     }
-
+    
     console.log(data);
+}
+
+function Enviar() {
+    console.log('Dados enviados com sucesso!')
 }
