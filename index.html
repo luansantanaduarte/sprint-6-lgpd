@@ -7,7 +7,6 @@
     <title>Ford</title>    
     <link href="css/reset.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-    <script src="js/carousel.js"></script>
 </head>
 <body>
     <header>       
@@ -29,20 +28,14 @@
         </nav>
     </header>
     <main>
-        <div id="carousel">
+        <div id="carousel-btn">
+            <button class="carousel-controller esquerda" onclick="Carousel.Previous()">&#10094</button>
+            <div id="carousel">
+            </div>
+            <button class="carousel-controller direita" onclick="Carousel.Next()">&#10095</button>
         </div>
         <div id="carousel-title">
         </div>
-        <script>
-             // insere as imagens no array carouselArr
-            carouselArr.push(new Carousel("imagem_1.jpg","Esta é a nova Ranger Ford 2022. Verifique novidades.","lancamento.html"));
-            carouselArr.push(new Carousel("imagem_2.jpg","Ford a nossa história","lancamento.html"));
-            carouselArr.push(new Carousel("imagem_3.jpg","Nova Ford Bronco Sport 2022","lancamento.html"));
-            Carousel.Start(carouselArr);  carouselArr.push(new Carousel("imagem_1.jpg","Esta é a nova Ranger Ford 2022. Verifique novidades.","lancamento.html"));
-            carouselArr.push(new Carousel("imagem_2.jpg","Ford a nossa história","lancamento.html"));
-            carouselArr.push(new Carousel("imagem_3.jpg","Nova Ford Bronco Sport 2022","lancamento.html"));
-            Carousel.Start(carouselArr);
-        </script>
     </main>
     <footer>
         <nav id="social">
@@ -54,8 +47,9 @@
             </ul>
         </nav>
         <div>
-           <img src="img/ford-96.png" width="70"  />
+            <img src="img/ford-96.png" width="70"/>
         </div>
     </footer>    
+    <script src="js/carousel.js"></script>
 </body>
 </html>

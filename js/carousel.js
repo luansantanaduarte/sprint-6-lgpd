@@ -13,19 +13,26 @@ class Carousel {
         this.link = link;
     }
 
-    static Start(arr){
-        if(arr){
-            if(arr.length > 0){
+    static StartInterval() {
+        Carousel._interval = setInterval(function () {
+            Carousel.Next();
+        }, 3000);
+    }
+
+    static Start(arr) {
+        if (arr) {
+            if (arr.length > 0) {
                 Carousel._sequence = 0;
                 Carousel._size = arr.length;
-                Carousel.Next(); //start
-                Carousel._interval = setInterval(function(){ Carousel.Next(); },3000);
+                Carousel.showElements()
+                Carousel.StartInterval();
             }
         } else {
             throw "Method Start need a Array Variable.";
         }
     }
-    static Next() {
+
+    static showElements() {
         let nomeDoArquivo = carouselArr[Carousel._sequence].nome;
         let descricaoDaImagem = carouselArr[Carousel._sequence].descricao;
         let link = carouselArr[Carousel._sequence].link;
@@ -33,10 +40,36 @@ class Carousel {
         imagemPromocional.innerHTML = `<a href="/${link}"><img src="/img/${nomeDoArquivo}" alt=""></a>`;
         let descricaoPromocional = document.getElementById('carousel-title');
         descricaoPromocional.innerHTML = `<a href="/${link}">${descricaoDaImagem}</a>`;
+    }
 
+
+    static Next() {
+        clearInterval(Carousel._interval);
         Carousel._sequence++;
-        if(Carousel._sequence >= carouselArr.length) {
+        if (Carousel._sequence >= carouselArr.length) {
             Carousel._sequence = 0
         }
+        Carousel.showElements();
+        console.log(Carousel._sequence);
+        Carousel.StartInterval();
+    }
+
+    static Previous() {
+        clearInterval(Carousel._interval);
+        Carousel._sequence--;
+        if (Carousel._sequence < 0) {
+            Carousel._sequence = carouselArr.length - 1;
+        }
+
+        Carousel.showElements();
+        console.log(Carousel._sequence);
+        Carousel.StartInterval();
     }
 };
+
+
+carouselArr.push(new Carousel("imagem_1.jpg", "Esta é a nova Ranger Ford 2022. Verifique novidades.", "lancamento.html"));
+carouselArr.push(new Carousel("imagem_2.jpg", "Ford a nossa história", "lancamento.html"));
+carouselArr.push(new Carousel("imagem_3.jpg", "Nova Ford Bronco Sport 2022", "lancamento.html"));
+
+Carousel.Start(carouselArr);
