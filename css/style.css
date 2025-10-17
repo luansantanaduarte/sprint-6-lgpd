@@ -110,6 +110,18 @@ footer div {
     margin-right: 40px;
 }
 
+
+button:hover {
+    background: #1b357e;
+}
+button {
+    background: #1351d8;
+    color: #fff;
+    border: 0px;
+    border-radius: 10px;
+}
+
+
 #carousel-btn {
     display: flex;
     justify-content: space-between;
