@@ -9,7 +9,6 @@
     <link href="css/reset.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href="css/form.css" rel="stylesheet">
-    <script src="js/form.js"></script>
 </head>
 
 <body>
@@ -30,7 +29,7 @@
                 </li>
             </ul>
         </nav>
-
+        
     </header>
     <main>
         <div class="forms">
@@ -56,15 +55,15 @@
                                 <p>Os dados serão mantidos em nossa base de dados, só enquanto for desejado por você. A qualquer momento será possível editar ou remover tais dados. <a href="">Termos e condições</a>.</p>
                             </div>
                             <div id="formulario-checkbox-termos">
-                                <input type="checkbox" name="" id="">
-                                <p>Sim, li e concordo com nosso Termos de Uso.</p>
+                                <input type="checkbox" name="" id="termosUso" required>
+                                <label>Sim, li e concordo com nosso Termos de Uso.</label>
                             </div>
                             <div id="formulario-checkbox-email">
                                 <input type="checkbox" name="" id="">
-                                <p>Sim, também quero receber descontos e novidades.</p>
+                                <label>Sim, também quero receber descontos e novidades.</label>
                             </div>
                         </div>
-                        <button type="submit" onclick="Enviar()" onkeydown="Enviar()" disabled>Enviar</button>
+                        <abbr title="É necessário aceitar os termos de uso."><button type="submit" onclick="Enviar()" onkeydown="Enviar()" class="disabled" disabled>Enviar</button></abbr>
                     </form>
                 </div>
             </div>
@@ -83,6 +82,7 @@
             <img src="img/ford-96.png" width="70" />
         </div>
     </footer>
+    <script src="js/form.js"></script>
 </body>
 
 </html>
